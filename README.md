@@ -73,7 +73,7 @@ Aplicar los conocimientos básicos de HTML aprendidos en clases, incluyendo:
 
 ## 👤 Autor
 
-* [Tu Nombre Aquí]
+* Germán Aravena
 
 ---
 

@@ -1,0 +1,105 @@
+
+body {
+    background-color: #DAE3F9;
+    font-family: Verdana, sans-serif;
+}
+
+footer {
+    font-size: small;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+.banner {
+  position: relative;
+  background-color: #DAE3F9;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+}
+
+.texto-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: black;
+  text-align: center;
+}
+
+.texto-banner h1 {
+  font-size: 40px;
+  margin: 0;
+}
+
+.texto-banner h2 {
+  font-size: 20px;
+}
+
+.links {
+    background-color: #DAE3F9;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration-thickness: auto;
+    margin: 30px;
+}
+
+.contenido-principal {
+    background-color: #DAE3F9;
+    padding: 20px;
+    margin: 30px;
+    border-radius: 100px;
+}
+
+.contenido-principal h3 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contenido-principal h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contenido-principal img {
+    width: 400px; 
+    height: auto;
+    border-radius: 20px;
+}
+
+.talentos {
+    font-size: large;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.talentos a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+.ficha {
+  background-color: rgb(123, 126, 196);
+  width: 60%;
+  margin: 40px auto;  
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.ficha h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}

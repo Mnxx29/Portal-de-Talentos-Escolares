@@ -5,11 +5,30 @@ body {
 }
 
 footer {
+    border-top: #64bfd3;
+    border-width: 1px;
+    border-style: solid;
     font-size: small;
     text-align: center;
     padding: 10px;
     margin-top: 20px;
 }
+
+.indeximg {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    gap: 20px;               
+    margin-top: 20px;        
+}
+
+.indeximg img {
+    width: 250px;    
+    height: 180px;    
+    object-fit: cover; 
+    border-radius: 10px; 
+}
+
 .banner {
   position: relative;
   background-color: #DAE3F9;
@@ -45,7 +64,15 @@ footer {
     font-weight: bold;
     text-align: left;
     text-decoration-thickness: auto;
-    margin: 30px;
+    
+}
+.links ul {
+  display: flex;
+  justify-content: center;
+}
+.links li {
+  list-style: none;
+  margin: 0 100px;
 }
 
 .contenido-principal {
@@ -87,6 +114,12 @@ footer {
     font-weight: bold;
     text-align: center;
 }
+
+.talentos p {
+    margin-top: 5px;
+    font-size: medium;
+  text-align: center;
+  }
 
 
 

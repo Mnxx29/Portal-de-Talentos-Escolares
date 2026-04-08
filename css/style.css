@@ -1,5 +1,6 @@
 :root {
-    --fondo-general: #DAE3F9;
+    --fondo-general: #d6e4ff;
+    --fondo-secundario: #edf4ff;
     --blanco: #ffffff;
     --azul-principal: #7b7ec4;
     --azul-suave: #c7d9f7;
@@ -9,12 +10,13 @@
 }
 
 body {
-    background-color: var(--fondo-general);
+    background: linear-gradient(180deg, var(--fondo-general) 0%, var(--fondo-secundario) 100%);
     font-family: Verdana, sans-serif;
     color: var(--texto);
     margin: 0;
     padding: 0;
 }
+
 
 footer {
     font-size: small;
@@ -24,6 +26,8 @@ footer {
     background-color: var(--azul-principal);
     color: white;
 }
+
+
 
 
 .banner {
@@ -204,3 +208,5 @@ footer {
     margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
+
+

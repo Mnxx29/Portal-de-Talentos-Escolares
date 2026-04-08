@@ -8,6 +8,9 @@
     <meta name="Descripción" content="Pagina que muestra los talentos escolares de los estudiantes del colegio.">
     <title>Portal de Talentos Escolares</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styleBootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 
 
@@ -15,13 +18,69 @@
 
 <body>
     
-    <header class="banner">
-        <img src="../img/banner.png" alt="banner de talentos escolares">
-        <div class="texto-banner">
-            <h1>Portal de Talentos Escolares</h1>
-            <h2>Descubriendo habilidades únicas</h2>
-        </div>
-    </header>
+    <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../index.html">Portal de Talentos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="../html/Musica.html">Música</a></li>
+          <li class="nav-item"><a class="nav-link" href="../html/Deportes.html">Deportes</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-banner text-white text-center d-flex align-items-center">
+    <div class="container">
+      <div class="hero-box mx-auto">
+        <h1 class="display-5 fw-bold">Portal de Talentos Escolares</h1>
+        <p class="lead mb-0">Descubriendo habilidades únicas</p>
+      </div>
+    </div>
+  </section>
+</header>
+
+
+
+
+<div class="carousel-wrapper">
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/jugando futbol.webp" alt="Estudiantes jugando futbol">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/tocando guitarra.jpg" alt="Estudiantes tocando guitarra">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/pinpon.jpg" alt="Estudiantes jugando pinpon">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/jovenes-musica.webp" alt="Estudiantes tocando instrumentos musicales">
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+
+
+
 
 
 

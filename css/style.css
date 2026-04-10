@@ -202,11 +202,28 @@ footer {
 }
 
 .ficha img {
-    width: 200px;
+    width: 500px;
     height: auto;
     border-radius: 20px;
     margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 }
 
+.ficha a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: var(--blanco);
+    color: var(--azul-principal);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: var(--sombra);
+    transition: all 0.3s ease;
+}
 
+.ficha a:hover {
+    transform: translateY(-3px);
+    background-color: var(--azul-suave);
+    color: var(--texto);
+}

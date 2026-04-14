@@ -1,66 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 :root {
-    --fondo-general: #d6e4ff;
-    --fondo-secundario: #edf4ff;
+    /* Fondo dinámico vibrante para hacer destacar el Glassmorfismo */
+    --gradiente-bg: linear-gradient(-45deg, #a1c4fd, #e0c3fc, #c2e9fb, #f1f5f9);
+    
     --blanco: #ffffff;
-    --azul-principal: #7b7ec4;
-    --azul-suave: #c7d9f7;
-    --azul-hover: #6468b3;
-    --texto: #1f2937;
-    --sombra: 0 4px 12px rgba(0, 0, 0, 0.12);
+    --azul-principal: #4f46e5; /* Azul moderno/índigo */
+    --texto: #1e293b;
+    --texto-claro: #475569;
+    
+    /* Variables de Glassmorfismo */
+    --glass-bg: rgba(255, 255, 255, 0.45);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    --glass-blur: blur(12px);
+    
+    --borde-radio: 12px; /* Reducción de los 20-25px originales */
 }
 
 body {
-    background: linear-gradient(180deg, var(--fondo-general) 0%, var(--fondo-secundario) 100%);
-    font-family: Verdana, sans-serif;
+    background: var(--gradiente-bg);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Inter', sans-serif;
     color: var(--texto);
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Navbar glass superior */
+.glass-nav {
+    background: rgba(79, 70, 229, 0.85) !important; /* Semi-transparente */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 footer {
     font-size: small;
     text-align: center;
     padding: 15px;
     margin-top: 30px;
-    background-color: var(--azul-principal);
+    background: rgba(30, 41, 59, 0.85); /* Azul muy oscuro casi gris transparente */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: white;
 }
 
-
-
-
-.banner {
-    position: relative;
-    background-color: var(--fondo-general);
-}
-
-.banner img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.texto-banner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    text-align: center;
-    background-color: rgba(87, 127, 180, 0.65);
-    border-radius: 20px;
-}
-
-.texto-banner h1 {
-    font-size: 40px;
-    margin: 0;
-}
-
-.texto-banner h2 {
-    font-size: 20px;
-    margin-top: 10px;
-}
 
 
 .indeximg {
@@ -74,20 +67,25 @@ footer {
 .indeximg img {
     width: 300px;
     height: auto;
-    border-radius: 20px;
-    box-shadow: var(--sombra);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--glass-shadow);
 }
 
 
 .links {
-    background-color: var(--azul-principal);
-    font-size: 18px;
-    font-weight: bold;
+    /* Glass Effect */
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    
+    font-size: 16px; /* Ajuste para encajar mejor con tipografía Inter */
+    font-weight: 600;
     margin: 30px auto;
     padding: 15px 20px;
     width: 85%;
-    border-radius: 20px;
-    box-shadow: var(--sombra);
+    border-radius: var(--borde-radio);
 }
 
 .links ul {
@@ -105,108 +103,171 @@ footer {
 
 .links a {
     text-decoration: none;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 10px;
-
+    color: var(--texto);
+    padding: 10px 20px;
+    border-radius: 8px; /* Animación de hover */
+    transition: all 0.3s ease;
 }
 
 .links a:hover {
-    background-color: var(--azul-hover);
+    background-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 
 .contenido-principal {
-    background-color: var(--blanco);
-    padding: 30px;
+    /* Glass Effect */
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    
+    padding: 40px;
     margin: 30px auto;
-    border-radius: 25px;
+    border-radius: var(--borde-radio);
     width: 85%;
-    box-shadow: var(--sombra);
 }
 
 .contenido-principal h3 {
-    font-size: 30px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 25px;
     text-align: center;
     color: var(--azul-principal);
+    font-weight: 700;
 }
 
 .contenido-principal h4 {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     color: var(--texto);
+    font-weight: 600;
 }
 
 .contenido-principal p {
-    line-height: 1.6;
+    line-height: 1.7;
+    color: var(--texto-claro);
 }
 
 .contenido-principal img {
     width: 400px;
     max-width: 100%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: var(--sombra);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--glass-shadow);
 }
 
 
 .talentos {
-    font-size: large;
+    font-size: 16px; /* Tipografía más moderna */
     margin: 20px auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
 }
 
 .talentos a {
     text-decoration: none;
-    color: black;
-    font-weight: bold;
+    color: var(--texto);
+    font-weight: 600;
     text-align: center;
-    background-color: var(--azul-suave);
+    
+    /* Glass Effect para tarjetas individuales */
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    
     padding: 20px;
-    border-radius: 18px;
+    border-radius: var(--borde-radio);
     width: 220px;
-    box-shadow: var(--sombra);
-    transition: transform 0.2s ease, background-color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Animación muy suave */
 }
 
 .talentos a:hover {
     transform: translateY(-5px);
-    background-color: #b6cdf5;
+    background: rgba(255, 255, 255, 0.7); /* Se hace más sólido al pasar ratón */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
 }
 
 
 .ficha {
-    background-color: var(--azul-principal);
-    color: white;
+    /* Glass Effect */
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    color: var(--texto);
+    
     width: 60%;
     max-width: 700px;
     margin: 40px auto;
-    padding: 25px;
-    border-radius: 20px;
+    padding: 30px;
+    border-radius: var(--borde-radio);
     text-align: center;
-    box-shadow: var(--sombra);
 }
 
 .ficha h2 {
-    font-size: 30px;
+    font-size: 32px;
     margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--azul-principal);
 }
 
 .ficha p {
-    line-height: 1.6;
+    line-height: 1.7;
+    color: var(--texto-claro);
 }
 
 .ficha img {
-    width: 200px;
+    width: 500px;
     height: auto;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    border-radius: var(--borde-radio);
+    margin-bottom: 25px;
+    box-shadow: var(--glass-shadow);
 }
 
+.ficha a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 28px;
+    background-color: var(--azul-principal);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px; /* Reducción de bordes redondos en botón */
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    transition: all 0.3s ease;
+}
 
+.ficha a:hover {
+    transform: translateY(-3px);
+    background-color: #4338ca;
+    box-shadow: 0 8px 16px rgba(79, 70, 229, 0.4);
+}
+
+/* Glass Effect para Bootstrap Cards y otros componentes */
+.card {
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border) !important;
+    border-radius: var(--borde-radio) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1) !important;
+}
+
+.card-footer {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+}

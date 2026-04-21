@@ -1,151 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <link rel="icon" type="image/x-icon" href="img/icono.ico">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Germán Aravena">
-  <meta name="Descripción" content="Página que muestra los talentos escolares de los estudiantes del colegio.">
-  <title>Portal de Talentos Escolares</title>
-  <!-- Tipografía de Google Fonts (Inter) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/styleBootstrap.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../img/icono.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Germán Aravena">
+    <meta name="Descripción" content="Pagina que muestra los talentos escolares de los estudiantes del colegio.">
+    <title>Portal de Talentos Escolares</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styleBootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
 
 
 
 
 <body>
-
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark glass-nav shadow-sm">
-      <div class="container">
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
-          Portal de Talentos
-          <img src="img/logo.png" alt="Logo" width="40" class="ms-2 rounded-circle bg-white p-1">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menuPrincipal">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link" href="html/Musica.html">Música</a></li>
-            <li class="nav-item"><a class="nav-link" href="html/Deportes.html">Deportes</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <section class="hero-banner text-white text-center d-flex align-items-center">
-      <div class="container">
-        <div class="hero-box mx-auto">
-          <h1 class="display-5 fw-bold">Portal de Talentos Escolares</h1>
-          <p class="lead mb-0">Descubriendo habilidades únicas</p>
-        </div>
-      </div>
-    </section>
-  </header>
-
-
-
-
-  <div class="carousel-wrapper">
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item">
-          <img src="img/pinpon.jpg" alt="Estudiantes jugando ping-pong">
-        </div>
-        <div class="carousel-item">
-          <img src="img/jovenes-musica.webp" alt="Estudiantes tocando instrumentos musicales">
-        </div>
-        <div class="carousel-item active">
-          <img src="img/jugando futbol.webp" alt="Estudiantes jugando fútbol">
-        </div>
-        <div class="carousel-item">
-          <img src="img/tocando guitarra.jpg" alt="Estudiantes tocando guitarra">
-        </div>
-
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
+    
+    <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Portal de Talentos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
-      </button>
-    </div>
-  </div>
 
-
-
-
-
-
-
-
-  <nav class="links">
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="html/Musica.html">Música</a></li>
-      <li><a href="html/Deportes.html">Deportes</a></li>
-    </ul>
-  </nav>
-
-
-
-
-  <section class="contenido-principal">
-    <h3>Talentos Escolares</h3>
-    <div>
-      <p>Este portal ha sido creado con el objetivo de dar a conocer y destacar los talentos de estudiantes en las áreas
-        de música y deportes. Aquí podrás encontrar a distintos alumnos que se destacan por sus habilidades, esfuerzo y
-        dedicación en estas disciplinas. A través de este sitio, se busca motivar a otros estudiantes a desarrollar sus
-        propios talentos y reconocer el trabajo de quienes sobresalen en la comunidad escolar. Además, en las distintas
-        páginas podrás conocer más en detalle a cada uno de estos alumnos destacados, donde se presentan breves
-        descripciones de sus habilidades y logros.</p>
-    </div>
-    <div class="row align-items-center mt-4">
-      <div class="col-md-5">
-        <h4>Integrantes Destacados:</h4>
-        <ul class="lh-lg">
-          <li><strong>Valentina Rojas</strong> - Música</li>
-          <li><strong>Matías Soto</strong> - Música</li>
-          <li><strong>Isabella Méndez</strong> - Música</li>
-          <li><strong>Sebastián Rojas</strong> - Música</li>
-          <li><strong>Benjamín Vargas</strong> - Deportes</li>
-          <li><strong>Antonia Castillo</strong> - Deportes</li>
-          <li><strong>Lucía Fernández</strong> - Deportes</li>
-          <li><strong>Nicolás Paredes</strong> - Deportes</li>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="html/Musica.html">Música</a></li>
+          <li class="nav-item"><a class="nav-link" href="html/Deportes.html">Deportes</a></li>
         </ul>
       </div>
-      <div class="col-md-7">
-        <div class="indeximg mt-0">
-          <img src="img/jugando futbol.webp" alt="Estudiantes jugando fútbol" class="img-fluid">
-          <img src="img/tocando guitarra.jpg" alt="Estudiantes tocando guitarra" class="img-fluid">
-        </div>
+    </div>
+  </nav>
+
+  <section class="hero-banner text-white text-center d-flex align-items-center">
+    <div class="container">
+      <div class="hero-box mx-auto">
+        <h1 class="display-5 fw-bold">Portal de Talentos Escolares</h1>
+        <p class="lead mb-0">Descubriendo habilidades únicas</p>
+      </div>
+    </div>
+  </section>
+</header>
+
+
+
+
+<div class="carousel-wrapper">
+  <div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/jugando futbol.webp" alt="Estudiantes jugando futbol">
+      </div>
+      <div class="carousel-item">
+        <img src="img/tocando guitarra.jpg" alt="Estudiantes tocando guitarra">
+      </div>
+      <div class="carousel-item">
+        <img src="img/pinpon.jpg" alt="Estudiantes jugando pinpon">
+      </div>
+      <div class="carousel-item">
+        <img src="img/jovenes-musica.webp" alt="Estudiantes tocando instrumentos musicales">
       </div>
     </div>
 
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
-  </section>
 
 
 
 
-  <footer>
+
+
+
+    <nav class="links">
+    <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="html/Musica.html">Música</a></li>
+        <li><a href="html/Deportes.html">Deportes</a></li>
+    </ul>
+    </nav>
+
+
+
+
+    <section class="contenido-principal">
+        <h3>Talentos Escolares</h3>
+        <div>
+            <p>Este portal ha sido creado con el objetivo de dar a conocer y destacar los talentos de estudiantes en las áreas de música y deportes. Aquí podrás encontrar a distintos alumnos que se destacan por sus habilidades, esfuerzo y dedicación en estas disciplinas. A través de este sitio, se busca motivar a otros estudiantes a desarrollar sus propios talentos y reconocer el trabajo de quienes sobresalen en la comunidad escolar. Además, en las distintas páginas podrás conocer más en detalle a cada uno de estos alumnos destacados, donde se presentan breves descripciones de sus habilidades y logros.</p>
+        </div>
+        <div>
+            <h4>Integrantes Destacados:</h4>
+
+<ul>
+  <li><strong>Valentina Rojas</strong> - Música</li>
+  <li><strong>Matías Soto</strong> - Música</li>
+  <li><strong>Isabella Méndez</strong> - Música</li>
+  <li><strong>Sebastián Rojas</strong> - Música</li>
+  <li><strong>Benjamín Vargas</strong> - Deportes</li>
+  <li><strong>Antonia Castillo</strong> - Deportes</li>
+  <li><strong>Lucía Fernández</strong> - Deportes</li>
+  <li><strong>Nicolas Paredes</strong> - Deportes</li>
+</ul>
+</div>
+        <div class="indeximg">
+        <img src="img/jugando futbol.webp" alt="Estudiantes jugando futbol">
+        <img src="img/tocando guitarra.jpg" alt="Estudiantes tocando guitarra">
+        </div>
+
+
+</section>
+    
+
+
+
+<footer>
     <p>&copy; 2026 Portal de Talentos Escolares. Todos los derechos reservados.</p>
-  </footer>
+</footer>
 </body>
-
 </html>

@@ -53,56 +53,58 @@
   </header>
 
 
-<section>
+<section class="seccion-formulario">
+  <div class="formulario-container">
+    <div class="formulario-header">
+      <img src="../img/logo.png" alt="Logo Colegio" class="formulario-logo">
+      <h2>Formulario de Postulación</h2>
+      <p>Postula tu talento y sé parte de nuestra comunidad escolar.</p>
+    </div>
 
+    <form action="" method="post" enctype="multipart/form-data" name="Formulario" class="formulario-dos-columnas">
+      <fieldset>
+        <legend>Datos personales</legend>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+        
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Ingrese su email">
+        
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
+      </fieldset>
 
-<form action="" method="post" enctype="multipart/form-data" name="Formulario">
-
-<fieldset>
-  <legend>Datos personales</legend>
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
-  <br>
-  <label for="apellido">Apellido:</label>
-  <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
-  <br>
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" placeholder="Ingrese su email">
-  <br>
-  <label for="telefono">Teléfono:</label>
-  <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
-</fieldset>
-
-
-
-
-
-<fieldset>
-  <legend>Campus</legend>
-  <label for="campus">Seleccione un campus:</label>
-  <select name="campus" id="campus" size="1">
-    <optgroup label="Campus norte"> 
-      <option value="1">Campus norte 1</option>
-      <option value="2">Campus norte 2</option>
-      <option value="3">Campus norte 3</option>
-      <option value="4">Campus norte 4</option>
-    </optgroup>
-    <optgroup label="Campus sur">
-      <option value="5">Campus sur 1</option>
-      <option value="6">Campus sur 2</option>
-      <option value="7">Campus sur 3</option>
-      <option value="8">Campus sur 4</option>
-    </optgroup>
-  </select>
-  <label for="comentario">Comentario:</label>
-  <br>
-  <textarea id="comentario" name="comentario" placeholder="Ingrese su comentario" cols="30" rows="10"></textarea>
-  <br>
-  <input type="submit" value="Enviar">
-  <input type="reset" value="Limpiar">
-  <br>
-</fieldset>
-</form>
+      <fieldset>
+        <legend>Campus</legend>
+        <label for="campus">Seleccione un campus:</label>
+        <select name="campus" id="campus" size="1">
+          <optgroup label="Campus norte"> 
+            <option value="1">Campus norte 1</option>
+            <option value="2">Campus norte 2</option>
+            <option value="3">Campus norte 3</option>
+            <option value="4">Campus norte 4</option>
+          </optgroup>
+          <optgroup label="Campus sur">
+            <option value="5">Campus sur 1</option>
+            <option value="6">Campus sur 2</option>
+            <option value="7">Campus sur 3</option>
+            <option value="8">Campus sur 4</option>
+          </optgroup>
+        </select>
+        
+        <label for="comentario">Comentario:</label>
+        <textarea id="comentario" name="comentario" placeholder="Ingrese su comentario" cols="30" rows="5"></textarea>
+        
+        <div class="formulario-botones">
+          <input type="reset" value="Limpiar" class="btn-limpiar">
+          <input type="submit" value="Enviar" class="btn-enviar">
+        </div>
+      </fieldset>
+    </form>
+  </div>
 </section>
 </body>
 </html>

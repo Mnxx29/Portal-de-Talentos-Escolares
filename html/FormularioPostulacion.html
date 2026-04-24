@@ -65,22 +65,22 @@
       <fieldset>
         <legend>Datos personales</legend>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
         
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+        <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
         
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Ingrese su email">
+        <input type="email" id="email" name="email" placeholder="Ingrese su email" required>
         
         <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
+        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
       </fieldset>
 
       <fieldset>
         <legend>Campus</legend>
         <label for="campus">Seleccione un campus:</label>
-        <select name="campus" id="campus" size="1">
+        <select name="campus" id="campus" size="1" required>
           <optgroup label="Campus norte"> 
             <option value="1">Campus norte 1</option>
             <option value="2">Campus norte 2</option>
@@ -95,16 +95,30 @@
           </optgroup>
         </select>
         
-        <label for="comentario">Comentario:</label>
-        <textarea id="comentario" name="comentario" placeholder="Ingrese su comentario" cols="30" rows="5"></textarea>
+        <label>Área de Interés:</label>
+        <div class="formulario-radio-grupo">
+          <label class="radio-label">
+            <input type="radio" name="area_interes" value="musica" required>
+            <span>Música</span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="area_interes" value="deportes" required>
+            <span>Deportes</span>
+          </label>
+        </div>
+        
+        <label for="especialidad">Especialidad o Talento específico:</label>
+        <input type="text" id="especialidad" name="especialidad" placeholder="Ej. Flauta, Fútbol, Canto..." required>
         
         <div class="formulario-botones">
           <input type="reset" value="Limpiar" class="btn-limpiar">
-          <input type="submit" value="Enviar" class="btn-enviar">
-        </div>
+          <input type="submit" value="Enviar" class="btn-enviar" action="./FormularioPostulacion.html"></div>
       </fieldset>
     </form>
   </div>
 </section>
+<footer>
+  <p>&copy; 2026 Portal de Talentos Escolares. Todos los derechos reservados.</p>
+</footer>
 </body>
 </html>

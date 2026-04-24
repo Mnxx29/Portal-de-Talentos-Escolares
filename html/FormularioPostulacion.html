@@ -32,9 +32,10 @@
 
         <div class="collapse navbar-collapse" id="menuPrincipal">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="../index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link" href="Musica.html">Música</a></li>
             <li class="nav-item"><a class="nav-link" href="Deportes.html">Deportes</a></li>
+            <li class="nav-item"><a class="nav-link active" href="FormularioPostulacion.html">Postulación</a></li>
           </ul>
         </div>
       </div>
@@ -55,7 +56,10 @@
 <section>
 
 
-<form action="" method="post" enctype="" name="Formulario">
+<form action="" method="post" enctype="multipart/form-data" name="Formulario">
+
+<fieldset>
+  <legend>Datos personales</legend>
   <label for="nombre">Nombre:</label>
   <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
   <br>
@@ -67,24 +71,38 @@
   <br>
   <label for="telefono">Teléfono:</label>
   <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
-  <br>
+</fieldset>
+
+
+
+
+
+<fieldset>
+  <legend>Campus</legend>
+  <label for="campus">Seleccione un campus:</label>
+  <select name="campus" id="campus" size="1">
+    <optgroup label="Campus norte"> 
+      <option value="1">Campus norte 1</option>
+      <option value="2">Campus norte 2</option>
+      <option value="3">Campus norte 3</option>
+      <option value="4">Campus norte 4</option>
+    </optgroup>
+    <optgroup label="Campus sur">
+      <option value="5">Campus sur 1</option>
+      <option value="6">Campus sur 2</option>
+      <option value="7">Campus sur 3</option>
+      <option value="8">Campus sur 4</option>
+    </optgroup>
+  </select>
   <label for="comentario">Comentario:</label>
-  <textarea id="comentario" name="comentario" placeholder="Ingrese su comentario"></textarea>
+  <br>
+  <textarea id="comentario" name="comentario" placeholder="Ingrese su comentario" cols="30" rows="10"></textarea>
+  <br>
   <input type="submit" value="Enviar">
+  <input type="reset" value="Limpiar">
+  <br>
+</fieldset>
 </form>
-    
-
-
-
 </section>
-
-
-
-
-
-
 </body>
-
-
-
 </html>

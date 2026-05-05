@@ -1,16 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.forms["Formulario"];
-    
-    if (form) {
-        form.addEventListener("submit", function(event) {
-            // Prevenir el envío real del formulario para evitar que la página se recargue
-            event.preventDefault();
-            
-            // Mostrar la ventana emergente (pop-up)
-            alert("¡Felicidades! Has postulado exitosamente.");
-            
-            // Reiniciar el formulario
-            form.reset();
-        });
+
+function validarFormulario() {
+    var nombre = document.getElementById('nombre').value;
+    var apellido = document.getElementById('apellido').value;
+    var email = document.getElementById('email').value;
+    var telefono = document.getElementById('telefono').value;
+
+    if (nombre.trim() === '') {
+        alert('Por favor, ingrese su nombre. Este campo es obligatorio.');
+        console.log('Validación fallida: El campo nombre está vacío.');
+        return false; 
     }
-});
+
+    console.log('Validación exitosa. Enviando formulario de: ' + nombre + ' ' + apellido);
+    return true; 
+}

@@ -61,26 +61,26 @@
       <p>Postula tu talento y sé parte de nuestra comunidad escolar.</p>
     </div>
 
-    <form action="" method="post" enctype="multipart/form-data" name="Formulario" class="formulario-dos-columnas">
+    <form id="formularioPostulacion" onsubmit="return validarFormulario()" action="" method="post" enctype="multipart/form-data" name="Formulario" class="formulario-dos-columnas">
       <fieldset>
         <legend>Datos personales</legend>
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre">
         
         <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido" required>
+        <input type="text" id="apellido" name="apellido" placeholder="Ingrese su apellido">
         
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Ingrese su email" required>
+        <input type="email" id="email" name="email" placeholder="Ingrese su email">
         
         <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+        <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono">
       </fieldset>
 
       <fieldset>
         <legend>Campus</legend>
         <label for="campus">Seleccione un campus:</label>
-        <select name="campus" id="campus" size="1" required>
+        <select name="campus" id="campus" size="1">
           <optgroup label="Campus norte"> 
             <option value="1">Campus norte 1</option>
             <option value="2">Campus norte 2</option>
@@ -98,17 +98,17 @@
         <label>Área de Interés:</label>
         <div class="formulario-radio-grupo">
           <label class="radio-label">
-            <input type="radio" name="area_interes" value="musica" required>
+            <input type="radio" name="area_interes" value="musica">
             <span>Música</span>
           </label>
           <label class="radio-label">
-            <input type="radio" name="area_interes" value="deportes" required>
+            <input type="radio" name="area_interes" value="deportes">
             <span>Deportes</span>
           </label>
         </div>
         
         <label for="especialidad">Especialidad o Talento específico:</label>
-        <input type="text" id="especialidad" name="especialidad" placeholder="Ej. Flauta, Fútbol, Canto..." required>
+        <input type="text" id="especialidad" name="especialidad" placeholder="Ej. Flauta, Fútbol, Canto...">
         
         <div class="formulario-botones">
           <input type="reset" value="Limpiar" class="btn-limpiar">

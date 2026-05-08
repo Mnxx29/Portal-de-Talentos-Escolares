@@ -15,9 +15,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-</head>
-
-
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/javascript.js"></script>
+  </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark glass-nav shadow-sm">
@@ -61,7 +61,7 @@
       <p>Postula tu talento y sé parte de nuestra comunidad escolar.</p>
     </div>
 
-    <form id="formularioPostulacion" onsubmit="return validarFormulario()" action="" method="post" enctype="multipart/form-data" name="Formulario" class="formulario-dos-columnas">
+    <form id="formularioPostulacion" action="" method="post" enctype="multipart/form-data" name="Formulario" class="formulario-dos-columnas">
       <fieldset>
         <legend>Datos personales</legend>
         <label for="nombre">Nombre:</label>
@@ -95,6 +95,7 @@
           </optgroup>
         </select>
         
+
         <label>Área de Interés:</label>
         <div class="formulario-radio-grupo">
           <label class="radio-label">
@@ -115,11 +116,26 @@
           <input type="submit" value="Enviar" class="btn-enviar" action="./FormularioPostulacion.html"></div>
       </fieldset>
     </form>
+
+  </div>
+
+  <div id="div-formulario-simple" style="margin-top: 50px;">
+    <p>Formulario:</p>
+    <form id="formularioSimple">
+      <label for="nombreSimple">Nombre:</label>
+      <input type="text" id="nombreSimple" name="nombreSimple">
+      <br><br>
+      <label for="correo">Correo:</label>
+      <input type="email" id="correo" name="correo">
+      <br><br>
+      <input type="submit" value="Enviar">
+      <p id="mensaje"></p>
+    </form>  
   </div>
 </section>
 <footer>
   <p>&copy; 2026 Portal de Talentos Escolares. Todos los derechos reservados.</p>
 </footer>
-<script src="../js/javascript.js"></script>
+
 </body>
 </html>

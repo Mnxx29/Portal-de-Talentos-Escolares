@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/javascript.js"></script>
+    <script>
+        $(document).ready(function() {
+    $("#btn").click(function() {
+      $.ajax({
+        url: "https://jsonplaceholder.typicode.com/users/7",
+        type: "GET",
+        success: function(data){
+            $("#resultado").html(
+                "<h3>"+data.name+"</h3>"+
+                "<p>"+data.email+"</p>"+
+                "<p>"+data.address.city+"</p>"
+            );
+            
+        }
+      });  
+    });
+
+    $("#btn-pokemon").click(function() {
+      $.ajax({
+        url: "https://pokeapi.co/api/v2/pokemon/mewtwo",
+        type: "GET",
+        success: function(data){
+            let tipos = data.types.map(t => t.type.name).join(", ");
+            $("#resultado-pokemon").html(
+                "<h3>" + data.name + "</h3>" +
+                "<img src='" + data.sprites.front_default + "' alt='Mewtwo'>" +
+                "<p> Peso: " + data.weight + " kg" + "</p>" +
+                "<p> Tipo: " + tipos + "</p>"
+            );
+        }
+      });  
+    });
+});
+    </script>
+</head>
+<body>
+    <section>
+        <div style="text-align: center; margin-top: 50px;">
+            <h2>Información del Usuario</h2>
+            <button id="btn" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Obtener Datos</button>
+            <br><br>
+            <div id="resultado" style="border: 1px solid #ccc; padding: 20px; display: inline-block; min-width: 300px; min-height: 100px;">
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <h2>Información de Pokémon</h2>
+            <button id="btn-pokemon" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Obtener Mewtwo</button>
+            <br><br>
+            <div id="resultado-pokemon" style="border: 1px solid #ccc; padding: 20px; display: inline-block; min-width: 300px; min-height: 100px;">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

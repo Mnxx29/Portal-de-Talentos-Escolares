@@ -362,7 +362,9 @@ footer {
     transition: all 0.3s ease;
 }
 
-.formulario-dos-columnas input:focus,
+.formulario-dos-columnas input[type="text"]:focus,
+.formulario-dos-columnas input[type="email"]:focus,
+.formulario-dos-columnas input[type="tel"]:focus,
 .formulario-dos-columnas select:focus,
 .formulario-dos-columnas textarea:focus {
     outline: none;
@@ -445,4 +447,25 @@ footer {
     cursor: pointer;
     accent-color: var(--azul-principal);
     margin: 0;
+}
+
+/* --- Redes Sociales Footer --- */
+.redes-sociales {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    color: white;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon:hover {
+    color: #a1c4fd; /* Un azul claro que combine con el glassmorfismo */
+    transform: translateY(-3px) scale(1.1);
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }

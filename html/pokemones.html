@@ -1,64 +1,329 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../js/javascript.js"></script>
-    <script>
-        $(document).ready(function() {
-    $("#btn").click(function() {
-      $.ajax({
-        url: "https://jsonplaceholder.typicode.com/users/7",
-        type: "GET",
-        success: function(data){
-            $("#resultado").html(
-                "<h3>"+data.name+"</h3>"+
-                "<p>"+data.email+"</p>"+
-                "<p>"+data.address.city+"</p>"
-            );
-            
-        }
-      });  
-    });
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Germán Aravena">
+  <meta name="description" content="Aplicación web interactiva de POKEMON API">
+  <title>POKEMON API</title>
+  
+  <link rel="icon" type="image/png" href="../img/pokeball_favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/styleBootstrap.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  
+  <style>
+    /* Estilos específicos para esta página */
+    body {
+      background-image: url('../img/pokeball_bg.png');
+      background-size: 400px; /* Tamaño del patrón de fondo */
+      background-repeat: repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .pokemon-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 15px;
+    }
 
-    $("#btn-pokemon").click(function() {
-      $.ajax({
-        url: "https://pokeapi.co/api/v2/pokemon/mewtwo",
-        type: "GET",
-        success: function(data){
-            let tipos = data.types.map(t => t.type.name).join(", ");
-            $("#resultado-pokemon").html(
-                "<h3>" + data.name + "</h3>" +
-                "<img src='" + data.sprites.front_default + "' alt='Mewtwo'>" +
-                "<p> Peso: " + data.weight + " kg" + "</p>" +
-                "<p> Tipo: " + tipos + "</p>"
-            );
-        }
-      });  
-    });
-});
-    </script>
+    .poke-card {
+      /* Estilo Glassmorphism heredado de las tarjetas del portal */
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    
+    .poke-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .poke-img-container {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.08);
+      border: 5px solid rgba(255,255,255,0.8);
+    }
+
+    .poke-img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+    }
+
+    .type-badge {
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin: 0 5px;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+      font-size: 0.85rem;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+    
+    /* Buscador */
+    .search-box {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    /* Sobrescribir colores para la temática */
+    .btn-pokemon-random {
+      background: linear-gradient(45deg, #FFCB05, #F5A623); /* Amarillo Pokemon */
+      border: none;
+      color: #3B4CCA; /* Letras azul oscuro */
+      text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+      transition: all 0.3s ease;
+    }
+    .btn-pokemon-random:hover {
+      background: linear-gradient(45deg, #F5A623, #E89A14);
+      transform: scale(1.02);
+      color: #3B4CCA;
+    }
+  </style>
 </head>
+
 <body>
-    <section>
-        <div style="text-align: center; margin-top: 50px;">
-            <h2>Información del Usuario</h2>
-            <button id="btn" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Obtener Datos</button>
-            <br><br>
-            <div id="resultado" style="border: 1px solid #ccc; padding: 20px; display: inline-block; min-width: 300px; min-height: 100px;">
+  <header>
+    <nav class="navbar navbar-expand-lg shadow-sm" style="background: rgba(255, 203, 5, 0.95) !important;">
+      <div class="container justify-content-center">
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+          <img src="../img/pokemonprincipal.png" alt="Logo Pokémon" style="height: 60px; filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));">
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="pokemon-container flex-column">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-5">
+          
+          <!-- Controles de búsqueda -->
+          <div class="search-box text-center">
+            <h5 class="mb-3 fw-bold text-dark">Encuentra a tu Pokémon</h5>
+            <div class="input-group mb-4">
+              <input type="text" id="poke-input" class="form-control form-control-lg bg-light" placeholder="Nombre o ID..." aria-label="Nombre de Pokemon">
+              <button class="btn btn-primary px-4 fw-bold" type="button" id="btn-buscar">
+                <i class="bi bi-search"></i>
+              </button>
             </div>
+            
+            <button class="btn btn-pokemon-random w-100 rounded-pill fw-bold shadow py-2 fs-5" type="button" id="btn-aleatorio">
+              <i class="bi bi-dice-5-fill me-2"></i> ALEATORIO
+            </button>
+          </div>
+          
+          <!-- Imagen decorativa pokes varios -->
+          <div class="text-center mt-4 mb-4 d-none d-md-block">
+            <img src="../img/pokes varios.jpg" alt="Varios Pokemones" class="img-fluid rounded-4 shadow" style="border: 4px solid rgba(255,255,255,0.8); max-height: 220px; object-fit: cover; width: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+          </div>
+
         </div>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <h2>Información de Pokémon</h2>
-            <button id="btn-pokemon" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Obtener Mewtwo</button>
-            <br><br>
-            <div id="resultado-pokemon" style="border: 1px solid #ccc; padding: 20px; display: inline-block; min-width: 300px; min-height: 100px;">
+        <div class="col-md-8 col-lg-5">
+          <!-- Tarjeta de Resultados -->
+          <div id="resultado-pokemon" class="d-none">
+            <div class="poke-card mx-auto">
+              <div class="poke-img-container">
+                <img id="poke-img" class="poke-img" src="" alt="Pokemon">
+              </div>
+              <h2 id="poke-name" class="fw-bold text-uppercase mb-1" style="color: #2c3e50; font-size: 2rem;"></h2>
+              <p class="text-muted fw-bold mb-3 fs-5">Nº <span id="poke-id"></span></p>
+              
+              <div id="poke-types" class="mb-4 d-flex justify-content-center flex-wrap gap-2">
+                <!-- Badges de tipos -->
+              </div>
+              
+              <div class="row text-center mb-3 bg-light rounded-3 p-3 mx-2 shadow-sm border">
+                <div class="col-6 border-end border-2">
+                  <p class="text-muted mb-0 small fw-bold">PESO</p>
+                  <h4 id="poke-weight" class="fw-bold text-dark mb-0"></h4>
+                </div>
+                <div class="col-6">
+                  <p class="text-muted mb-0 small fw-bold">ALTURA</p>
+                  <h4 id="poke-height" class="fw-bold text-dark mb-0"></h4>
+                </div>
+              </div>
+              
+              <div class="mt-4">
+                <p class="text-muted mb-1 small fw-bold"><i class="bi bi-lightning-charge-fill text-warning"></i> HABILIDADES</p>
+                <p id="poke-abilities" class="fw-bold text-secondary text-capitalize fs-6"></p>
+              </div>
             </div>
+          </div>
+          
+          <!-- Mensaje de Error -->
+          <div id="error-msg" class="alert alert-danger d-none text-center shadow-sm border-0 rounded-4 p-4" role="alert">
+            <i class="bi bi-exclamation-octagon-fill fs-1 d-block mb-2 text-danger"></i>
+            <strong class="fs-5">¡Pokémon no encontrado!</strong><br>Intenta con otro nombre o ID válido.
+          </div>
+
         </div>
-    </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mt-auto py-4" style="background: rgba(59, 76, 202, 0.95);">
+    <div class="redes-sociales">
+        <a href="#" title="Comunidad Pokémon" class="social-icon"><i class="bi bi-globe"></i></a>
+        <a href="#" title="Foro Entrenadores" class="social-icon"><i class="bi bi-chat-square-text-fill"></i></a>
+        <a href="#" title="Torneos Oficiales" class="social-icon"><i class="bi bi-trophy-fill"></i></a>
+    </div>
+    <p class="text-center text-white-50 mb-0 mt-3">&copy; 2026 POKEMON API. Aplicación de uso exclusivo.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  
+  <script>
+    $(document).ready(function() {
+      // Colores por tipo de Pokemon
+      const typeColors = {
+        normal: '#A8A77A', fire: '#EE8130', water: '#6390F0', electric: '#F7D02C',
+        grass: '#7AC74C', ice: '#96D9D6', fighting: '#C22E28', poison: '#A33EA1',
+        ground: '#E2BF65', flying: '#A98FF3', psychic: '#F95587', bug: '#A6B91A',
+        rock: '#B6A136', ghost: '#735797', dragon: '#6F35FC', dark: '#705746',
+        steel: '#B7B7CE', fairy: '#D685AD'
+      };
+
+      function mostrarPokemon(data) {
+        // Ocultar error
+        $('#error-msg').addClass('d-none');
+        
+        // Asignar datos
+        $('#poke-name').text(data.name);
+        $('#poke-id').text(data.id.toString().padStart(3, '0'));
+        
+        // Imagen (preferir artwork oficial, fallback a sprite default)
+        let imgUrl = data.sprites.other['official-artwork'].front_default || data.sprites.front_default;
+        $('#poke-img').attr('src', imgUrl).hide().fadeIn(500);
+        
+        // Peso (convertir hectogramos a kg) y Altura (decímetros a m)
+        $('#poke-weight').text((data.weight / 10).toFixed(1) + ' kg');
+        $('#poke-height').text((data.height / 10).toFixed(1) + ' m');
+        
+        // Tipos
+        $('#poke-types').empty();
+        data.types.forEach(function(t) {
+          let typeName = t.type.name;
+          let color = typeColors[typeName] || '#777';
+          $('#poke-types').append(`<span class="type-badge" style="background-color: ${color};">${typeName}</span>`);
+        });
+        
+        // Habilidades
+        let abilities = data.abilities.map(a => a.ability.name.replace('-', ' ')).join(', ');
+        $('#poke-abilities').text(abilities);
+        
+        // Mostrar tarjeta con animación
+        $('#resultado-pokemon').removeClass('d-none').hide().fadeIn(400);
+      }
+
+      function buscarPokemonAPI(query) {
+        if(!query) return;
+        query = query.toLowerCase().trim();
+        
+        // Mostrar cargando
+        let btn = $('#btn-buscar');
+        let icon = btn.html();
+        btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+        btn.prop('disabled', true);
+        
+        $('#error-msg').addClass('d-none');
+        $('#resultado-pokemon').addClass('d-none');
+        
+        $.ajax({
+          url: `https://pokeapi.co/api/v2/pokemon/${query}`,
+          type: "GET",
+          success: function(data){
+            mostrarPokemon(data);
+            btn.html(icon);
+            btn.prop('disabled', false);
+          },
+          error: function() {
+            $('#resultado-pokemon').addClass('d-none');
+            $('#error-msg').removeClass('d-none').hide().fadeIn(300);
+            btn.html(icon);
+            btn.prop('disabled', false);
+          }
+        });
+      }
+
+      // Buscar por botón
+      $("#btn-buscar").click(function() {
+        let val = $("#poke-input").val();
+        buscarPokemonAPI(val);
+      });
+      
+      // Buscar con Enter
+      $("#poke-input").keypress(function(e) {
+        if(e.which == 13) {
+          let val = $("#poke-input").val();
+          buscarPokemonAPI(val);
+        }
+      });
+
+      // Pokemon Aleatorio
+      $("#btn-aleatorio").click(function() {
+        // Animación de carga para el botón aleatorio
+        let btn = $(this);
+        let originalText = btn.html();
+        btn.html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> BUSCANDO...');
+        btn.prop('disabled', true);
+        
+        $('#error-msg').addClass('d-none');
+        $('#resultado-pokemon').addClass('d-none');
+        
+        // Generar ID aleatorio entre 1 y 1025
+        let randomId = Math.floor(Math.random() * 1025) + 1;
+        
+        $.ajax({
+          url: `https://pokeapi.co/api/v2/pokemon/${randomId}`,
+          type: "GET",
+          success: (data) => {
+            mostrarPokemon(data);
+            $("#poke-input").val(''); // Limpiar input
+            btn.html(originalText);
+            btn.prop('disabled', false);
+          },
+          error: () => {
+            $('#resultado-pokemon').addClass('d-none');
+            $('#error-msg').removeClass('d-none').hide().fadeIn(300);
+            btn.html(originalText);
+            btn.prop('disabled', false);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

@@ -34,6 +34,59 @@ $(document).ready(function() {
             }
         }
 
+        // Función auxiliar para validar RUT
+        function validarRut(id) {
+            let elemento = $('#' + id);
+            let valor = elemento.val().trim();
+            
+            // Limpiar puntos y guión para validar solo números y K
+            let rutLimpio = valor.replace(/[^0-9kK]/g, '').toUpperCase();
+
+            if (valor === '') {
+                mostrarError(elemento, 'El RUT es obligatorio.');
+                esValido = false;
+                return;
+            }
+
+            if (rutLimpio.length < 2) {
+                mostrarError(elemento, 'RUT inválido. Debe contener al menos el dígito verificador.');
+                esValido = false;
+                return;
+            }
+
+            let cuerpo = rutLimpio.slice(0, -1);
+            let dv = rutLimpio.slice(-1);
+
+            if (!/^[0-9]+$/.test(cuerpo)) {
+                mostrarError(elemento, 'RUT inválido. Formato incorrecto.');
+                esValido = false;
+                return;
+            }
+
+            // Calcular Dígito Verificador (Módulo 11)
+            let suma = 0;
+            let multiplo = 2;
+
+            for (let i = cuerpo.length - 1; i >= 0; i--) {
+                suma = suma + multiplo * cuerpo.charAt(i);
+                if (multiplo < 7) {
+                    multiplo = multiplo + 1;
+                } else {
+                    multiplo = 2;
+                }
+            }
+            
+            let dvEsperado = 11 - (suma % 11);
+            let dvCalculado = (dvEsperado === 11) ? "0" : (dvEsperado === 10) ? "K" : dvEsperado.toString();
+
+            if (dvCalculado !== dv) {
+                mostrarError(elemento, 'El RUT ingresado no es válido (Dígito verificador incorrecto).');
+                esValido = false;
+            } else {
+                console.log("✅ Validación exitosa para: RUT");
+            }
+        }
+
         // Función auxiliar para validar Email
         function validarEmail(id) {
             let elemento = $('#' + id);
@@ -69,6 +122,9 @@ $(document).ready(function() {
         }
 
         // Validar todos los campos paso a paso
+        console.log("Validando RUT...");
+        validarRut('rut');
+
         console.log("Validando Nombre...");
         validarCampoTextoLetras('nombre', 'Nombre');
 
